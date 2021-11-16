@@ -8,15 +8,26 @@ class App extends React.Component {
     imgSrc: img,
     profession: "fullstack developer",
     show: true,
+    date: new Date(),
   };
 
   handletoggle = (e) => {
     e.preventDefault();
     this.setState({ show: !this.state.show });
   };
+  componentDidMount() {
+    this.timerID = setTimeout(() => this.tick(),0);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  tick() {
+    this.setState({date: new Date()});
+  }
   render() {
     return (
       <div className="App" style={{ textAlign: "center" }}>
+        <h2>{this.state.date.toLocaleTimeString()}</h2>
         <button
           onClick={this.handletoggle}
           style={{ width: "100px", height: "50px", backgroundColor: "red" }}
