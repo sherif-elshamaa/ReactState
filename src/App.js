@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" style={{ textAlign: "center" }}>
-        <h2>{this.state.counter} m/s</h2>
+        <h2>{this.state.counter} sec</h2>
         <button
           onClick={this.handletoggle}
           style={{ width: "100px", height: "50px", backgroundColor: "red" }}
